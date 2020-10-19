@@ -7,5 +7,5 @@
 # Contribution
 Le code est bien dégueu donc libre à vous de contribuer dessus pour l'améliorer.
 
-On pourrait créer une version notebook qui se déploierait automatiquement sur Glue dans votre compte AWS avec les données au bon endroit. Ça serait cool pour travailler dessus rapidos.
+On pourrait créer une version notebook qui se déploierait automatiquement sur SageMaker dans votre compte AWS avec les données au bon endroit. Ça serait cool pour travailler dessus rapidos.
  
