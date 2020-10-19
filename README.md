@@ -2,7 +2,7 @@
 1. Ouvrir dans intelliJ
 2. Laisser maven travailler
 3. exécuter en local dans intelliJ
-4. récupérer le résultat dans le dossier racine **data_ked**
+4. récupérer le résultat dans le dossier racine **data_ked**, c'est du csv.
 
 # Contribution
 Le code est bien dégueu donc libre à vous de contribuer dessus pour l'améliorer.
