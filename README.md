@@ -1,22 +1,11 @@
-# Je veux être prêt pour le XKE
+# Comment exécuter moi-même le code pour récupérer les stats ?
+1. Ouvrir dans intelliJ
+2. Laisser maven travailler
+3. exécuter en local dans intelliJ
+4. récupérer le résultat dans le dossier racine **data_ked**
 
-## installer les logiciels aux bonnes versions
+# Contribution
+Le code est bien dégueu donc libre à vous de contribuer dessus pour l'améliorer.
 
-docker-compose : https://docs.docker.com/compose/install/
-
-docker : https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04 + https://docs.docker.com/install/linux/linux-postinstall/
-
-ansible : https://linuxconfig.org/how-to-install-ansible-on-ubuntu-18-04-bionic-beaver-linux paragraphe `Install Ansible from PPA repository`
-
-## pull les images docker
-Afin d'être sur d'avoir tout ce qu'il faut pour demain, vous n'avez qu'à taper :
-
-```
-make docker-build
-make run-hadoop-docker
-make down-hadoop-docker
-```
-
-La première commande construira l'image correspondant au dockerfile du repo, la deuxième lancera toutes les images docker et téléchargera celles qui vous manquent, la dernière arrête toutes les images.
-
-A bientôt pour un super talk de qualité (j'espère).
+On pourrait créer une version notebook qui se déploierait automatiquement sur Glue dans votre compte AWS avec les données au bon endroit. Ça serait cool pour travailler dessus rapidos.
+ 

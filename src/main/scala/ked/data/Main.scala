@@ -1,4 +1,4 @@
-package xke.local
+package ked.data
 
 import org.apache.spark.sql._
 import org.apache.spark.unsafe.types.CalendarInterval
@@ -7,13 +7,13 @@ import org.apache.spark.sql.expressions.{UserDefinedFunction, Window, WindowSpec
 
 import scala.annotation.tailrec
 
-object HelloWorld {
+object Main {
   def main(args: Array[String]): Unit = {
     /**
      * L'abus de join est mauvais pour la santé
      * Je me dis que je pourrais recycler ce repo pour en faire un slot sur l'optimisation des traitements sparks :)
      */
-    val spark = SparkSession.builder().appName("test").master("local[*]").getOrCreate()
+    val spark = SparkSession.builder().appName("data-ked").master("local[*]").getOrCreate()
 
     val windowKed = Window.orderBy(col("year"), col("month"))
       .rowsBetween(-3, 0)
