@@ -7,13 +7,16 @@ import org.apache.spark.sql.expressions.{UserDefinedFunction, Window, WindowSpec
 
 import scala.annotation.tailrec
 
-object Main {
+object AggregateDataApp {
   def main(args: Array[String]): Unit = {
     /**
      * L'abus de join est mauvais pour la santé
      * Je me dis que je pourrais recycler ce repo pour en faire un slot sur l'optimisation des traitements sparks :)
      */
-    val spark = SparkSession.builder().appName("data-ked").master("local[*]").getOrCreate()
+    val spark = SparkSession.builder().appName("data-ked").getOrCreate()
+
+    val inputFile = args(0)
+    val outputFile = args(1)
 
     val windowKed = Window.orderBy(col("year"), col("month"))
       .rowsBetween(-3, 0)
@@ -22,7 +25,7 @@ object Main {
       .rowsBetween(-3, 0)
     val percentileUdf = udf(percentile(_, _, _))
 
-    val df = spark.read.json("src/main/resources/data")
+    val df = spark.read.json(inputFile)
 
     val nbSlotsStats = nbSlot(df, windowKed).cache
     val speakersStatsPerKed = nbSlotPerSpeakerPerKED(df).cache
@@ -59,7 +62,7 @@ object Main {
       .write
       .option("header", true)
       .mode("OverWrite")
-      .csv("data_ked")
+      .csv(outputFile)
   }
 
   def formatHoursMin(seconds: Long): String = {

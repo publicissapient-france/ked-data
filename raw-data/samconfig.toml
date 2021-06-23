@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "raw-data"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1vrmjyg57kzo0"
+s3_prefix = "raw-data"
+region = "eu-west-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

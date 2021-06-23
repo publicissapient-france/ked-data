@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  raw-data
+
+  get raw data for KED and put it on s3
+
+Parameters:
+  ENV:
+    Description: 'Required. The environment'
+    Type: 'String'
+
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  RawDataFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: raw_data/
+      Handler: app.lambda_handler
+      Environment:
+        Variables:
+          ENV: !Ref ENV
+      Runtime: python3.8
+      Policies:
+        - AmazonS3FullAccess
+        - CloudWatchFullAccess
+
+
+Outputs:
+  RawDataFunction:
+    Description: "raw-data Lambda Function ARN"
+    Value: !GetAtt RawDataFunction.Arn
+  RawDataFunctionIamRole:
+    Description: "Implicit IAM Role created for raw-data function"
+    Value: !GetAtt RawDataFunctionRole.Arn
